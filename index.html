@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+
+    <script>
+    function getRandomInt(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+    }   
+
+    function computerPlay(){
+    let computerPick = ["Rock","Paper","Scissors"];
+    return computerPick[getRandomInt(0,2)];
+    }
+    
+    const computerSelection = computerPlay();
+    const playerPickData = prompt();
+    const playerSelection = playerPickData.charAt(0).toUpperCase()+playerPickData.slice(1).toLowerCase();
+    
+
+    function playRound(playerSelection, computerSelection){
+        console.log("You: "+ playerSelection);
+        console.log("Pc: "+computerSelection);
+
+        if(playerSelection === computerSelection){
+            console.log("Its a draw!")
+        }
+        else if(playerSelection == "Rock" && computerSelection == "Paper" || playerSelection == "Scissors" && computerSelection=="Rock"|| playerSelection == "Paper" && computerSelection=="Scissors"){
+            console.log("You lost")
+        }
+        else
+        {
+            console.log("YOU WON !")
+        }
+
+        }
+    
+
+    playRound(playerSelection,computerSelection);
+
+
+    
+    </script>
+</body>
+</html>
