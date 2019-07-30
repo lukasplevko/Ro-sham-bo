@@ -63,16 +63,16 @@ function game(user,computer){
 buttons.forEach(button => button.addEventListener("click", function(){
    
 
-    playerSelection = "You: "+button.textContent;
+    playerSelection = button.textContent;
    //console.log(playerSelection);
    userPick.textContent = playerSelection;
    let number = getRandomInt(0,2);
    let computerSelection = computerPick[number];
    //console.log(computerSelection);
-   pcPick.textContent = "PC: " + computerSelection;
+   pcPick.textContent = computerSelection;
    game(playerSelection,computerSelection);
    
-}))
+}));
 
 
 
