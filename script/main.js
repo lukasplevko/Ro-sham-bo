@@ -7,7 +7,8 @@ const gameInfo = document.querySelector("#gameInfo");
 
 
 let playerSelection = "";
-let points = 0;
+let usrPoints = 0;
+let aiPoints = 0;
 let number = getRandomInt(0,2);
 let computerPick = ["Rock","Paper","Scissors"];
 
@@ -28,26 +29,31 @@ function game(user,computer){
 
     if(user === computer){
         result.textContent = "Draw";
+        pointsPara.textContent = usrPoints + " - " + aiPoints;
     }
     else if(user === "Rock" && computer === "Scissors"){
         result.textContent = "Win";
-        points++;
-        pointsPara.textContent = points;
+        usrPoints++;
+        pointsPara.textContent = usrPoints + " - " + aiPoints;
         
     }else if(user === "Scissors" && computer === "Paper"){
         result.textContent = "Win";
-        points++;
-        pointsPara.textContent = points;
+        usrPoints++;
+        pointsPara.textContent = usrPoints + " - " + aiPoints;
     }else if(user === "Paper" && computer === "Rock"){
         result.textContent = "Win";
     }else{
         result.textContent = "Loss";
+        aiPoints ++;
+        pointsPara.textContent = "You: " + usrPoints + " - " + "PC: " + aiPoints;;
         
     }
 
-    if(points === 5){
-        result.textContent = "End of the game";
+    if(usrPoints === 5){
+        result.textContent = "You won the game!!";
         
+    }else if(aiPoints === 5){
+        result.textContent = "AI won";
     }
     
 }
@@ -57,13 +63,13 @@ function game(user,computer){
 buttons.forEach(button => button.addEventListener("click", function(){
    
 
-    playerSelection = button.textContent;
+    playerSelection = "You: "+button.textContent;
    //console.log(playerSelection);
    userPick.textContent = playerSelection;
    let number = getRandomInt(0,2);
    let computerSelection = computerPick[number];
    //console.log(computerSelection);
-   pcPick.textContent = computerSelection;
+   pcPick.textContent = "PC: " + computerSelection;
    game(playerSelection,computerSelection);
    
 }))
